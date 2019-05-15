@@ -9,7 +9,7 @@ class App extends Component {
   componentDidMount = async () => {
     try {
       // Get network provider and web3 instance.
-      const web3 = new Web3('http://127.0.0.1:7545');
+      const web3 = new Web3('http://127.0.0.1:8545');
 
       // Use web3 to get the user's accounts.
       const accounts = await web3.eth.getAccounts();
@@ -38,8 +38,9 @@ class App extends Component {
     const { accounts, contract } = this.state;
 
     // Stores a given value, 5 by default.
-    await contract.methods.vaccinate("yellow-feber","1O/O5/19", true).call({ from: accounts[1] });
-    console.log('sent')
+    await contract.methods.vaccinate("yellow-feber","1O/O5/19", true).send({ from: accounts[1],gas: 1500000,
+    gasPrice: '30000000000000'});
+    await console.log('sent');
 
     // Get the value from the contract to prove it worked.
     var response = await contract.methods.vaccines("1").call();

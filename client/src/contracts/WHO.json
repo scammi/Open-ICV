@@ -2013,10 +2013,16 @@
       "links": {},
       "address": "0x0d8b877a806875741c8B56460F7826A842F7a6Af",
       "transactionHash": "0x62a347f89dcd9b14dea4d271a84a78c084daed4a20c7a7cf4f79e8062ccd6a7c"
+    },
+    "1557957193089": {
+      "events": {},
+      "links": {},
+      "address": "0xCfEB869F69431e42cdB54A4F4f105C19C080A601",
+      "transactionHash": "0x258a91d07cd83bb22a74bcebb86eb382e2e3ab05f0773c10846c29f98e86e0d0"
     }
   },
   "schemaVersion": "3.0.8",
-  "updatedAt": "2019-05-11T23:48:20.340Z",
+  "updatedAt": "2019-05-15T21:53:18.743Z",
   "devdoc": {
     "methods": {}
   },
