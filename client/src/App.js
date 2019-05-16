@@ -40,13 +40,13 @@ class App extends Component {
     // Stores a given value, 5 by default.
     await contract.methods.vaccinate("yellow-feber","1O/O5/19", true).send({ from: accounts[1],gas: 1500000,
     gasPrice: '30000000000000'});
-    await console.log('sent');
 
     // Get the value from the contract to prove it worked.
     var response = await contract.methods.vaccines("1").call();
     console.log(response);
     // Update state with the result.
-    this.setState({ storageValue: response });
+
+    this.setState({ storageValue: response.name});
   };
 
   render() {
@@ -55,17 +55,11 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>Good to Go!</h1>
-        <p>Your Truffle Box is installed and ready.</p>
-        <h2>Smart Contract Example</h2>
-        <p>
-          If your contracts compiled and migrated successfully, below will show
-          a stored value of 5 (by default).
-        </p>
-        <p>
-          Try changing the value stored on <strong>line 40</strong> of App.js.
-        </p>
-        <div>The stored value is: {this.state.storageValue}</div>
+        <h1>International certificate of vaccination</h1>
+        <p>Decentralized version of WHO Yellow Card </p>
+        <h4>Patient address {this.state.accounts[1]}</h4>
+
+        <div>Vaccines apllied: {this.state.storageValue}.</div>
       </div>
     );
   }
