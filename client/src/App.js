@@ -4,7 +4,7 @@ import Web3 from "web3";
 import "./App.css";
 
 class App extends Component {
-  state = { storageValue: null, web3: null, accounts: null, contract: null };
+  state = { vacCount: null, vaccines: null, web3: null, accounts: null, contract: null };
 
   componentDidMount = async () => {
     try {
@@ -40,13 +40,17 @@ class App extends Component {
     // Stores a given value, 5 by default.
     await contract.methods.vaccinate("yellow-feber","1O/O5/19", true).send({ from: accounts[1],gas: 1500000,
     gasPrice: '30000000000000'});
+    await contract.methods.vaccinate("Hepatitis A","11/O1/O1", true).send({ from: accounts[1],gas: 1500000,
+    gasPrice: '30000000000000'});
 
-    // Get the value from the contract to prove it worked.
     var response = await contract.methods.vaccines("1").call();
-    console.log(response);
-    // Update state with the result.
+    var vacCountResponse =  await contract.methods.vaccinesId().call();
 
-    this.setState({ storageValue: response.name});
+    var result = Object.keys(response).map(function(key) {
+      return <li>{[response[key]]}</li>;
+    });
+
+    this.setState({ vaccines: result, vacCount: vacCountResponse });
   };
 
   render() {
@@ -58,8 +62,10 @@ class App extends Component {
         <h1>International certificate of vaccination</h1>
         <p>Decentralized version of WHO Yellow Card </p>
         <h4>Patient address {this.state.accounts[1]}</h4>
-
-        <div>Vaccines apllied: {this.state.storageValue}.</div>
+        <h4>Total vaccines {this.state.vacCount}</h4>
+        <div>
+          <ul>{this.state.vaccines}</ul>
+        </div>
       </div>
     );
   }
