@@ -1,5 +1,5 @@
 # Open International certificate of vaccination
-#### Decentralized International certificate of vaccination on ethreum network
+#### Decentralized WHO yellow vaccination card on the ethreum network
 
 ### Run on local machine
 
@@ -14,6 +14,7 @@
     npm install
 ```	
 3. Start local block-chain
+
   `ganache-cli`
 	
 4. Deploy contract
