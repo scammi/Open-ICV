@@ -1,6 +1,5 @@
 # Open International certificate of vaccination
 #### Decentralized International certificate of vaccination on ethreum network
-======
 
 ### Run on local machine
 
@@ -10,20 +9,23 @@
 	- Ganache-cli
 	
 2. Install:
+```
     git clone https://github.com/scammi/Open-ICV.git
     npm install
-	
+```	
 3. Start local block-chain
-    ganache-cli
+  `ganache-cli`
 	
 4. Deploy contract
+```
    on new terminal
    truffle migrate
-
+```
 5. Start react client 
+```
    cd client
    npm start
-   
+```
 
    
    
